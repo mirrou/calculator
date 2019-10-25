@@ -73,6 +73,14 @@ subtract.addEventListener('click', function(){
     inputOperator('-')
 })
 
+multiply.addEventListener('click', function(){
+    inputOperator('*')
+})
+
+divide.addEventListener('click', function(){
+    inputOperator('/')
+})
+
 equals.addEventListener('click', function(){
     inputOperator('=')
 })
