@@ -11,7 +11,7 @@ const equals = document.getElementById('equals');
 
 const state = {
     values:[''], 
-    operator: null
+    operator: null 
 }
 
 function inputNumber(value){
@@ -19,26 +19,24 @@ function inputNumber(value){
     const valueIndex = state.values.length -1
     state.values[valueIndex] += '' + value
 
-    display.innerHTML= state.values[valueIndex]
+    display.innerHTML = state.values[valueIndex]
 }
 
 function inputOperator(value){
     if(state.values.length > 1 || value === '='){
         const output = eval(state.values[0] + state.operator + state.values[1]);
         state.values = [output]
-    }else {state.values.push('')}
+    }else state.values.push('')
     
     display.innerHTML = state.values[state.values.length-1];
     if (value !== '=') state.operator = value;
 }
 //attach event handlers to the number buttons
-numbers.forEach(function(button){ //for each button
-    const number = button.innerHTML.toString(); //grab the innerHTML and convert to a string
-    //console.log(number)
-    button.addEventListener('click', function(){ //listen for the click
+numbers.forEach(function(button){ 
+    const number = button.innerHTML.toString(); 
+    
+    button.addEventListener('click', function(){ 
         inputNumber(number)
-        // const value = display.innerHTML + number; //append the number to the display's innerHTML and assign to value
-        // display.innerHTML=value; //change innerHTML of display to = value
     })
 })
 
@@ -61,7 +59,7 @@ negative.addEventListener('click', function(){
 
 //percent button functionality
 percent.addEventListener('click', function(){
-    const value = Number(display.innerHTML) / 100;
+    const value = +display.innerHTML / 100;
     display.innerHTML=value;
 })
 
